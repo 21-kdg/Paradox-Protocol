@@ -1,4 +1,4 @@
-from backend.security.kms_encryptor import encrypt_data
+from security.kms_encryptor import encrypt_data
 
 def log_incident(event: dict):
     encrypted_event = encrypt_data(str(event))

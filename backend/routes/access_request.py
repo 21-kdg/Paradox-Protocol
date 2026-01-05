@@ -2,13 +2,13 @@ from fastapi import APIRouter
 from pydantic import BaseModel
 
 # Consent evaluation (Phase 1 + Phase 2)
-from backend.middleware.consent_check import evaluate_request
+from middleware.consent_check import evaluate_request
 
 # Enforcement layer (Phase 3)
-from backend.enforcement.enforce_action import enforce
+from enforcement.enforce_action import enforce
 
 # Encrypted logging (Phase 2)
-from backend.logs.logger import log_incident
+from logs.logger import log_incident
 
 
 router = APIRouter()

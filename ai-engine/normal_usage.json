@@ -1,0 +1,8 @@
+{
+    "allowed_purposes": ["login", "delivery"],
+    "time_window": { "start": 9, "end": 18 },
+    "max_requests_per_hour": 10,
+    "allowed_destinations": ["internal-db"]
+  }
+
+  

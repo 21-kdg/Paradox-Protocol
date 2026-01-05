@@ -1,19 +1,18 @@
 from fastapi import FastAPI
-from routes.access_request import router as access_router
+from fastapi.middleware.cors import CORSMiddleware
 
+app = FastAPI()
 
-app = FastAPI(
-    title="Consent Firewall Backend",
-    description="Backend enforcement layer for AI-powered consent firewall",
-    version="1.0"
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "https://paradox-frontend.vercel.app"
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
-# Register routes
+# 👇 routes imports etc
+from backend.routes.access_request import router as access_router
 app.include_router(access_router)
-
-@app.get("/")
-def root():
-    return {
-        "status": "running",
-        "message": "Consent Firewall Backend is live"
-    }
